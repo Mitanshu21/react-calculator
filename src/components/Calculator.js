@@ -12,6 +12,7 @@ function Calculator() {
   const inputHandler = (event) => {
     if (answer === "Invalid Input!!") return;
     let val = event.target.innerText;
+
     if (val === "x2") val = "^2";
     else if (val === "x3") val = "^3";
     else if (val === "3√") val = "^(1÷3)";
@@ -108,15 +109,17 @@ function Calculator() {
     //need to change for answer
     if (answer === "Invalid Input!!") return;
     else if (answer !== "") {
-      if (input.charAt(0) === "-") {
+      console.log(typeof answer);
+      let ans = answer.toString();
+      if (ans.charAt(0) === "-") {
         let plus = "+";
-        setInput(plus.concat(answer.slice(1, answer.length)));
-      } else if (input.charAt(0) === "+") {
+        setInput(plus.concat(ans.slice(1, ans.length)));
+      } else if (ans.charAt(0) === "+") {
         let minus = "-";
-        setInput(minus.concat(answer.slice(1, answer.length)));
+        setInput(minus.concat(ans.slice(1, ans.length)));
       } else {
         let minus = "-";
-        setInput(minus.concat(answer));
+        setInput(minus.concat(ans));
       }
       setAnswer("");
     } else {
