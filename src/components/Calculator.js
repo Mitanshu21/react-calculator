@@ -12,6 +12,11 @@ function Calculator() {
   const inputHandler = (event) => {
     if (answer === "Invalid Input!!") return;
     let val = event.target.innerText;
+    if (val === "x2") val = "^2";
+    else if (val === "x3") val = "^3";
+    else if (val === "3√") val = "^(1÷3)";
+    else if (val === "log") val = "log(";
+
     let str = input + val;
     if (str.length > 14) return;
 
@@ -25,6 +30,11 @@ function Calculator() {
   //Clear screen
   const clearInput = () => {
     setInput("");
+    setAnswer("");
+  };
+
+  const clearAnswer = () => {
+    if (answer === "") setInput("");
     setAnswer("");
   };
 
@@ -131,6 +141,7 @@ function Calculator() {
           <Buttons
             inputHandler={inputHandler}
             clearInput={clearInput}
+            clearAnswer={clearAnswer}
             backspace={backspace}
             changePlusMinus={changePlusMinus}
             calculateAns={calculateAns}

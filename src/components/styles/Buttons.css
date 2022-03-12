@@ -1,14 +1,19 @@
 .show-btn {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
+.equal {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+
 .btn {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: 6px auto;
   font-size: 24px;
   font-weight: 500;
@@ -21,8 +26,9 @@
 .btn:last-child {
   font-weight: medium;
   font-size: 40px;
-  width: 65px;
-  height: 65px;
+  width: 110px;
+  height: 50px;
+  border-radius: 10px;
   color: white;
   background-color: #6dd5ed;
 }
