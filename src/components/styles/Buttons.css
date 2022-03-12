@@ -18,6 +18,15 @@
   border: 0px;
 }
 
+.btn:last-child {
+  font-weight: medium;
+  font-size: 40px;
+  width: 65px;
+  height: 65px;
+  color: white;
+  background-color: #6dd5ed;
+}
+
 .btn:hover {
   background-color: #6dd5ed;
   color: white;
