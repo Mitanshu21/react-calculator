@@ -34,11 +34,6 @@ function Calculator() {
     setAnswer("");
   };
 
-  const clearAnswer = () => {
-    if (answer === "") setInput("");
-    setAnswer("");
-  };
-
   // check brackets are balanced or not
   const checkBracketBalanced = (expr) => {
     let stack = [];
@@ -109,7 +104,6 @@ function Calculator() {
     //need to change for answer
     if (answer === "Invalid Input!!") return;
     else if (answer !== "") {
-      console.log(typeof answer);
       let ans = answer.toString();
       if (ans.charAt(0) === "-") {
         let plus = "+";
@@ -144,7 +138,6 @@ function Calculator() {
           <Buttons
             inputHandler={inputHandler}
             clearInput={clearInput}
-            clearAnswer={clearAnswer}
             backspace={backspace}
             changePlusMinus={changePlusMinus}
             calculateAns={calculateAns}

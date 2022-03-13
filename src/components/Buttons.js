@@ -5,7 +5,6 @@ import "./styles/Buttons.css";
 const Buttons = ({
   inputHandler,
   clearInput,
-  clearAnswer,
   backspace,
   changePlusMinus,
   calculateAns,

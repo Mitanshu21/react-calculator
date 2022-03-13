@@ -35,7 +35,6 @@ const Display = ({ input, setInput, answer }) => {
               className="value"
               value={input}
               placeholder="0"
-              // onChange={onChangeTagInput}
               maxLength={12}
               disabled
             />
@@ -44,6 +43,7 @@ const Display = ({ input, setInput, answer }) => {
               name="value"
               className="input"
               value={answer}
+              // onChange={onChangeTagInput}
               disabled
             />
           </>
