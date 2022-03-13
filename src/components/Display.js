@@ -2,13 +2,13 @@ import React from "react";
 import "./styles/Display.css";
 
 const Display = ({ input, setInput, answer }) => {
-  // const onChangeTagInput = (e) => {
-  //   // setInputVal(e.target.value.replace(/^[0-9 ()+-]+$/, "a"));
-  //   // if(e.target.value === "1")
-  //   setInput(e.target.value);
-  //   // console.log(e.target.value.test(/^[0-9 ()+-]+$/));
-  //   // console.log(e.target.value);
-  // };
+  const onChangeTagInput = (e) => {
+    const re = /^[!%(-+\x2D-9^glox\xF7\u221A]+$/;
+
+    if (e.target.value === "" || re.test(e.target.value)) {
+      setInput(e.target.value);
+    }
+  };
 
   return (
     <>
@@ -22,9 +22,10 @@ const Display = ({ input, setInput, answer }) => {
               style={{ padding: "29px" }}
               value={input}
               placeholder="0"
-              // onChange={onChangeTagInput}
               maxLength={12}
-              disabled
+              // disabled
+              onChange={onChangeTagInput}
+              autoComplete="off"
             />
           </>
         ) : (
@@ -43,7 +44,6 @@ const Display = ({ input, setInput, answer }) => {
               name="value"
               className="input"
               value={answer}
-              // onChange={onChangeTagInput}
               disabled
             />
           </>
