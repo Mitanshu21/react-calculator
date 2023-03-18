@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   padding-bottom: 20px;
   background: linear-gradient(90deg, #06beb6, #48b1bf 100%);
+}
+
+@media (min-width: 800px) {
+  .display {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 }
 
 .expression {
