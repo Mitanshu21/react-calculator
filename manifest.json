@@ -1,0 +1,29 @@
+{
+  "short_name": "Calculator",
+  "name": "React Calculator",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://mitanshu21.github.io/react-calculator/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#dfe9f5",
+  "description": "Calculator created in react application.",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "display_override": ["standalone"]
+}

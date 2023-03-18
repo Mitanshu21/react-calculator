@@ -11,7 +11,13 @@
   border: 0px;
   box-shadow: 0px 0px 3px 0.5px #c4e0e5;
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 500px;
+}
+
+@media (min-width: 800px) {
+  .main {
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 600px) {
