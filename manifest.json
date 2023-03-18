@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Calculator",
+  "name": "React Calculator",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,12 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://mitanshu21.github.io/react-calculator/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#dfe9f5",
+  "description": "Calculator created in react application.",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "display_override": ["standalone"]
 }
