@@ -10,7 +10,11 @@ export default function App() {
         if(btn.textContent === e.key || btn.dataset.key === e.key){
           e.preventDefault();
           btn.click();
-          console.log(btn);
+          // console.log(btn);
+          btn.classList.add('active');
+          setTimeout(() => {
+            btn.classList.remove('active');
+          }, 300);
           break;
         }
       }

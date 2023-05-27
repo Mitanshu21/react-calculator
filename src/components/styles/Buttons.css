@@ -33,6 +33,7 @@
   background: hsl(0, 0%, 97%);
   border: 1px solid hsl(0, 0%, 99%);
   user-select: none;
+  outline: none;
 }
 
 .btn:last-child {
@@ -43,6 +44,12 @@
   height: auto;
   color: white;
   background-color: black;
+}
+
+.active {
+  border: 1px solid hsl(0, 0%, 31%);
+  transform: scale(0.97);
+  transition: transform 0.15s ease; 
 }
 
 @media (min-width: 800px) {
