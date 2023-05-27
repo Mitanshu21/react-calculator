@@ -1,40 +1,52 @@
 import React, { useState } from "react";
 import Display from "./Display";
 import Buttons from "./Buttons";
-import "./styles/Calculator.css";
+// import "./styles/Calculator.css";
 import { evaluate, round } from "mathjs";
 
-function Calculator() {
+export default function Calculator() {
   const [input, setInput] = useState("");
   const [answer, setAnswer] = useState("");
+  const Invalid_str = 'Invalid Input';
 
-  //input
+  //input from buttons
   const inputHandler = (event) => {
-    if (answer === "Invalid Input!!") return;
-    let val = event.target.innerText;
+    
+    let val = event.target.textContent;
+    const inputElmnt = document.querySelector('.input');
+    const cursorPos = inputElmnt.selectionStart;
 
-    if (val === "x2") val = "^2";
-    else if (val === "x3") val = "^3";
-    else if (val === "3√") val = "^(1÷3)";
-    else if (val === "log") val = "log(";
-
+    switch (val) {
+      case "x2":
+        val = "^2";
+      break;
+      case "x3":
+        val = "^3";
+      break;
+      case "3√":
+        val = "^(1÷3)";
+      break;
+      case "log":
+        val = "log(";
+      break;
+    }
+  
     let str = input + val;
-    if (str.length > 14) return;
-
-    if (answer !== "") {
+  
+    if (answer === Invalid_str) {
+      setInput(val);
+      setAnswer("");
+    }
+    else if (answer !== "") {
       setInput(answer + val);
       setAnswer("");
-    } else setInput(str);
-    // setInput(str);
+    }
+    else {
+      setInput(str);
+    }
   };
 
-  //Clear screen
-  const clearInput = () => {
-    setInput("");
-    setAnswer("");
-  };
-
-  // check brackets are balanced or not
+  // check brackets are balanced or not //innecesario
   const checkBracketBalanced = (expr) => {
     let stack = [];
     for (let i = 0; i < expr.length; i++) {
@@ -52,14 +64,34 @@ function Calculator() {
     return stack.length === 0;
   };
 
+  const addBracket = (expr) => {
+    const stack = [];
+
+    expr.split('').forEach(char => {
+      if(char === '(')
+        stack.push(char);
+      
+      else if(char === '(')
+        stack.pop();
+    })
+
+    const closingBrackets = ')'.repeat(stack.length);
+
+    return `${expr}${closingBrackets}`;
+  }
+
   // calculate final answer
   const calculateAns = () => {
     if (input === "") return;
+
     let result = 0;
     let finalexpression = input;
-    //  finalexpression = input.replaceAll("^", "**");  //for eval()
     finalexpression = finalexpression.replaceAll("x", "*");
     finalexpression = finalexpression.replaceAll("÷", "/");
+
+    finalexpression = addBracket(finalexpression);
+    setInput(finalexpression);
+    console.log(finalexpression);
 
     // evaluate square root
     let noSqrt = input.match(/√[0-9]+/gi);
@@ -82,13 +114,20 @@ function Calculator() {
         throw errorMessage;
       }
       result = evaluate(finalexpression); //mathjs
+      console.log(result, finalexpression);
     } catch (error) {
       result =
         error.message === "Brackets are not balanced!"
           ? "Brackets are not balanced!"
-          : "Invalid Input!!"; //error.message;
+          : Invalid_str; //error.message;
     }
     isNaN(result) ? setAnswer(result) : setAnswer(round(result, 3));
+  };
+
+  //Clear screen
+  const clearInput = () => {
+    setInput("");
+    setAnswer("");
   };
 
   // remove last character
@@ -98,11 +137,12 @@ function Calculator() {
       setAnswer("");
     } else setInput((prev) => prev.slice(0, -1));
   };
+  
 
   // change prefix of expression
   const changePlusMinus = () => {
     //need to change for answer
-    if (answer === "Invalid Input!!") return;
+    if (answer === Invalid_str) return;
     else if (answer !== "") {
       let ans = answer.toString();
       if (ans.charAt(0) === "-") {
@@ -131,21 +171,15 @@ function Calculator() {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="main">
-          <Display input={input} setInput={setInput} answer={answer} />
-          <Buttons
-            inputHandler={inputHandler}
-            clearInput={clearInput}
-            backspace={backspace}
-            changePlusMinus={changePlusMinus}
-            calculateAns={calculateAns}
-          />
-        </div>
-      </div>
-    </>
+    <div className="container">
+      <Display input={input} setInput={setInput} answer={answer}/>
+      <Buttons
+        inputHandler={inputHandler}
+        clearInput={clearInput}
+        backspace={backspace}
+        changePlusMinus={changePlusMinus}
+        calculateAns={calculateAns}
+        />
+    </div>
   );
 }
-
-export default Calculator;

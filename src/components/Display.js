@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./styles/Display.css";
 
-const Display = ({ input, setInput, answer }) => {
+export default function Display({ input, setInput, answer }) {
+
   const onChangeTagInput = (e) => {
     const re = /^[!%(-+\x2D-9^glox\xF7\u221A]+$/;
 
@@ -11,46 +12,24 @@ const Display = ({ input, setInput, answer }) => {
   };
 
   return (
-    <>
-      <div className="display">
-        {answer === "" ? (
-          <>
-            <input
-              type="text"
-              name="input"
-              className="input"
-              style={{ padding: "29px" }}
-              value={input}
-              placeholder="0"
-              maxLength={12}
-              // disabled
-              onChange={onChangeTagInput}
-              autoComplete="off"
-            />
-          </>
-        ) : (
-          <>
-            <input
-              type="text"
-              name="input"
-              className="value"
-              value={input}
-              placeholder="0"
-              maxLength={12}
-              disabled
-            />
-            <input
-              type="text"
-              name="value"
-              className="input"
-              value={answer}
-              disabled
-            />
-          </>
-        )}
-      </div>
-    </>
+    <div className="display">
+      <input
+        type="text"
+        name="input"
+        className="value"
+        value={answer === '' ? answer : input}
+        disabled
+      />
+      <input
+        type="text"
+        name="input"
+        className="input"
+        autoComplete="off"
+        style={{ padding: "29px" }}
+        value={answer === '' ? input : answer}
+        onChange={answer === '' ? onChangeTagInput : null}
+        disabled={answer !== ''}
+      />
+    </div>
   );
 };
-
-export default Display;

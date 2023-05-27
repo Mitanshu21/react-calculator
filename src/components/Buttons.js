@@ -1,15 +1,8 @@
 import React from "react";
 import "./styles/Buttons.css";
-// import CALCULATOR_BUTTONS from "./CalculatorButtons";
 
 const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calculateAns }) => {
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("equalbtn").click();
-    }
-  });
-
+  
   return (
     <div className="show-btn">
       <button className="btn exp" onClick={inputHandler}>
@@ -27,10 +20,10 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
       <button className="btn exp" onClick={inputHandler}>
         x<sup>2</sup>
       </button>
-      <button className="btn clr" onClick={clearInput}>
+      <button id='clrAll' className="btn clr" onClick={clearInput}>
         AC
       </button>
-      <button className="btn clr" onClick={backspace}>
+      <button id='clr' className="btn clr" onClick={backspace}>
         ⌫
       </button>
       <button className="btn exp" onClick={inputHandler}>

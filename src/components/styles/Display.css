@@ -3,13 +3,14 @@
   flex-direction: column;
   padding: 10px;
   padding-bottom: 20px;
-  background: linear-gradient(90deg, #06beb6, #48b1bf 100%);
+  /* background: linear-gradient(90deg, #06beb6, #48b1bf 100%); */
+  background: #F7F0EB;
 }
 
 @media (min-width: 800px) {
   .display {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
   }
 }
 
@@ -24,9 +25,11 @@
   padding: 10px;
   text-align: right;
   background-color: transparent;
-  color: white;
+  color: black;
   border: 0px;
   letter-spacing: 1.5px;
+  font-weight: lighter;
+  font-family: system-ui;
 }
 
 .input {
@@ -39,7 +42,7 @@
 
 .input::placeholder,
 .value::placeholder {
-  color: white;
+  color: black;
 }
 
 .input:focus-visible,
