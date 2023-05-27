@@ -25,7 +25,7 @@ export default function Display({ input, setInput, answer }) {
         name="input"
         className="input"
         autoComplete="off"
-        style={{ padding: "29px" }}
+        style={{ padding: "20px" }}
         value={answer === '' ? input : answer}
         onChange={answer === '' ? onChangeTagInput : null}
         disabled={answer !== ''}

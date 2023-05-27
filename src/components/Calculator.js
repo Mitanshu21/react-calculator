@@ -143,14 +143,16 @@ export default function Calculator() {
 
   return (
     <div className="container">
-      <Display input={input} setInput={setInput} answer={answer}/>
-      <Buttons
-        inputHandler={inputHandler}
-        clearInput={clearInput}
-        backspace={backspace}
-        changePlusMinus={changePlusMinus}
-        calculateAns={calculateAns}
-        />
+      <div className="main">
+        <Display input={input} setInput={setInput} answer={answer}/>
+        <Buttons
+          inputHandler={inputHandler}
+          clearInput={clearInput}
+          backspace={backspace}
+          changePlusMinus={changePlusMinus}
+          calculateAns={calculateAns}
+          />
+      </div>
     </div>
   );
 }

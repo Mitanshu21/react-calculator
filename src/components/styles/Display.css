@@ -1,17 +1,10 @@
 .display {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  width: 100%;
   padding-bottom: 20px;
-  /* background: linear-gradient(90deg, #06beb6, #48b1bf 100%); */
   background: #F7F0EB;
-}
-
-@media (min-width: 800px) {
-  .display {
-    /* border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
-  }
+  border-radius: 12px 12px 0px 0px;
 }
 
 .expression {

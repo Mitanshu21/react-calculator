@@ -1,14 +1,11 @@
 .show-btn {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(5, auto);
+  width: 100%;
+  /* padding: 10px; */
+  /* box-sizing: border-box;
+  border-radius: 0px 0px 12px 12px; */
   background-color: white;
-}
-
-@media (min-width: 800px) {
-  .show-btn {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
 }
 
 .equal {
@@ -16,9 +13,9 @@
   grid-column-end: 6;
 }
 
-
 .clr {
-  color: hsl(355, 100%, 26%);
+  color: white;
+  background: hsl(355, 100%, 26%) !important;
 }
 
 .exp {
@@ -28,13 +25,13 @@
 .btn {
   width: auto;
   height: auto;
-  padding: 6px;
+  padding: 12px 6px;
   font-size: 24px;
   font-weight: lighter;
   font-family: system-ui;
   cursor: pointer;
-  background: hsl(0, 0%, 96%);
-  border: 1px solid hsl(0, 0%, 100%);
+  background: hsl(0, 0%, 97%);
+  border: 1px solid hsl(0, 0%, 99%);
   user-select: none;
 }
 
@@ -50,7 +47,7 @@
 
 @media (min-width: 800px) {
   .btn:hover {
-    border: 1px solid hsl(0, 0%, 53%);
+    border: 1px solid hsl(0, 0%, 31%);
   }
 
   .btn:active {

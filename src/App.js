@@ -1,4 +1,5 @@
 import Calculator from "./components/Calculator";
+import "./components/styles/Calculator.css";
 import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
