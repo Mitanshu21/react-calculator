@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./styles/Display.css";
 
 export default function Display({ input, setInput, answer }) {

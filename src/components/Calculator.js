@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Display from "./Display";
 import Buttons from "./Buttons";
-// import "./styles/Calculator.css";
+import "./styles/Calculator.css";
 import { evaluate, round } from "mathjs";
 
 export default function Calculator() {
@@ -14,20 +14,10 @@ export default function Calculator() {
     
     let val = event.target.textContent;
 
-    switch (val) {
-      case "x2":
-        val = "^2";
-      break;
-      case "x3":
-        val = "^3";
-      break;
-      case "3√":
-        val = "^(1÷3)";
-      break;
-      case "log":
-        val = "log(";
-      break;
-    }
+    if (val === "x2") val = "^2";
+    else if (val === "x3") val = "^3";
+    else if (val === "3√") val = "^(1÷3)";
+    else if (val === "log") val = "log(";
   
     let str = input + val;
   
@@ -141,14 +131,17 @@ export default function Calculator() {
 
   return (
     <div className="container">
-      <Display input={input} setInput={setInput} answer={answer}/>
-      <Buttons
-        inputHandler={inputHandler}
-        clearInput={clearInput}
-        backspace={backspace}
-        changePlusMinus={changePlusMinus}
-        calculateAns={calculateAns}
-        />
+      <div className="main">
+        <Display input={input} setInput={setInput} answer={answer}/>
+        <Buttons
+          inputHandler={inputHandler}
+          clearInput={clearInput}
+          backspace={backspace}
+          changePlusMinus={changePlusMinus}
+          calculateAns={calculateAns}
+          />
+      </div>
+      
     </div>
   );
 }
