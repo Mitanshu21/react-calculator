@@ -11,10 +11,6 @@ export default function Calculator() {
 
   //input from buttons
   const inputHandler = (event) => {
-    
-    let val = event.target.textContent;
-    const inputElmnt = document.querySelector('.input');
-    const cursorPos = inputElmnt.selectionStart;
 
     switch (val) {
       case "x2":
