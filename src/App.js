@@ -3,11 +3,12 @@ import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
     const onKeyDown = (e) => { //try with switch
+      console.log(e);
       if (e.code === 'Enter') {
         e.preventDefault();
         document.getElementById("equalbtn").click();
       }
-      else if(e.code === 'KeyC'){
+      else if(e.code === 'Backspace'){
         e.preventDefault();
         document.getElementById('clr').click();
       }

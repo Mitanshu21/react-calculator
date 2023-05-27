@@ -46,24 +46,6 @@ export default function Calculator() {
     }
   };
 
-  // check brackets are balanced or not //innecesario
-  const checkBracketBalanced = (expr) => {
-    let stack = [];
-    for (let i = 0; i < expr.length; i++) {
-      let x = expr[i];
-      if (x === "(") {
-        stack.push(x);
-        continue;
-      }
-
-      if (x === ")") {
-        if (stack.length === 0) return false;
-        else stack.pop();
-      }
-    }
-    return stack.length === 0;
-  };
-
   const addBracket = (expr) => {
     const stack = [];
 
@@ -91,7 +73,6 @@ export default function Calculator() {
 
     finalexpression = addBracket(finalexpression);
     setInput(finalexpression);
-    console.log(finalexpression);
 
     // evaluate square root
     let noSqrt = input.match(/√[0-9]+/gi);
@@ -108,18 +89,9 @@ export default function Calculator() {
     }
 
     try {
-      // check brackets are balanced or not
-      if (!checkBracketBalanced(finalexpression)) {
-        const errorMessage = { message: "Brackets are not balanced!" };
-        throw errorMessage;
-      }
       result = evaluate(finalexpression); //mathjs
-      console.log(result, finalexpression);
     } catch (error) {
-      result =
-        error.message === "Brackets are not balanced!"
-          ? "Brackets are not balanced!"
-          : Invalid_str; //error.message;
+      result = Invalid_str;
     }
     isNaN(result) ? setAnswer(result) : setAnswer(round(result, 3));
   };
@@ -141,33 +113,32 @@ export default function Calculator() {
 
   // change prefix of expression
   const changePlusMinus = () => {
-    //need to change for answer
     if (answer === Invalid_str) return;
-    else if (answer !== "") {
-      let ans = answer.toString();
-      if (ans.charAt(0) === "-") {
-        let plus = "+";
-        setInput(plus.concat(ans.slice(1, ans.length)));
-      } else if (ans.charAt(0) === "+") {
-        let minus = "-";
-        setInput(minus.concat(ans.slice(1, ans.length)));
-      } else {
-        let minus = "-";
-        setInput(minus.concat(ans));
+    
+    const ans = answer.toString();
+    const firstChatA = ans.charAt(0);
+    const firstChatI = input.charAt(0);
+    let sign = '-';
+
+    if (answer !== "") {
+      if(firstChatA === '-' || firstChatA === '+'){
+        sign = firstChatA === '-' ? '+' : '-';
+        setInput(sign.concat(ans.slice(1)));
       }
-      setAnswer("");
-    } else {
-      if (input.charAt(0) === "-") {
-        let plus = "+";
-        setInput((prev) => plus.concat(prev.slice(1, prev.length)));
-      } else if (input.charAt(0) === "+") {
-        let minus = "-";
-        setInput((prev) => minus.concat(prev.slice(1, prev.length)));
-      } else {
-        let minus = "-";
-        setInput((prev) => minus.concat(prev));
-      }
+      else
+        setInput(sign.concat(ans));
     }
+
+    else {
+      if(firstChatI === '-' || firstChatI === '+'){
+        sign = firstChatI === '-' ? '+' : '-';
+        setInput((prev) => sign.concat(prev.slice(1)));
+      }
+      else
+        setInput((prev) => sign.concat(prev));
+    }
+    
+    setAnswer("");
   };
 
   return (
