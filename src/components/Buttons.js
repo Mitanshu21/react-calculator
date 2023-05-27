@@ -5,7 +5,7 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
   
   return (
     <div className="show-btn">
-      <button className="btn exp" onClick={inputHandler}>
+      <button className="btn exp" data-key='^' onClick={inputHandler}>
         ^
       </button>
       <button className="btn exp" onClick={inputHandler}>
@@ -20,16 +20,16 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
       <button className="btn exp" onClick={inputHandler}>
         x<sup>2</sup>
       </button>
-      <button id='clrAll' className="btn clr" onClick={clearInput}>
+      <button className="btn clr" data-key='a' onClick={clearInput}>
         AC
       </button>
-      <button id='clr' className="btn clr" onClick={backspace}>
+      <button className="btn clr" data-key='Backspace' onClick={backspace}>
         ⌫
       </button>
       <button className="btn exp" onClick={inputHandler}>
         log
       </button>
-      <button className="btn exp" onClick={inputHandler}>
+      <button className="btn exp" data-key='/' onClick={inputHandler}>
         ÷
       </button>
       <button className="btn exp" onClick={inputHandler}>
@@ -44,7 +44,7 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
       <button className="btn" onClick={inputHandler}>
         9
       </button>
-      <button className="btn exp" onClick={inputHandler}>
+      <button className="btn exp" data-key='*' onClick={inputHandler}>
         x
       </button>
       <button className="btn exp" onClick={inputHandler}>
@@ -89,7 +89,7 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
       <button className="btn exp" onClick={inputHandler}>
         .
       </button>
-      <button className="btn exp equal" id="equalbtn" onClick={calculateAns}>
+      <button className="btn exp equal" id="equalbtn" data-key='Enter' onClick={calculateAns}>
         =
       </button>
     </div>

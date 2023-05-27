@@ -2,27 +2,15 @@ import Calculator from "./components/Calculator";
 import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
-    const onKeyDown = (e) => { //try with switch
+    const onKeyDown = (e) => {
       console.log(e);
-      if (e.code === 'Enter') {
-        e.preventDefault();
-        document.getElementById("equalbtn").click();
-      }
-      else if(e.code === 'Backspace'){
-        e.preventDefault();
-        document.getElementById('clr').click();
-      }
-      else if(e.code === 'KeyA'){
-        e.preventDefault();
-        document.getElementById('clrAll').click();
-      }
-      else{
-        const btns = document.querySelectorAll('.btn:not(.exp, .clr)');
-        for(const btn of btns){ //try whit Array.from -- .find()
-          if(btn.textContent === e.key){
-            btn.click();
-            break;
-          }
+      const btns = document.querySelectorAll('.btn');
+      for(const btn of btns){ //try whit Array.from -- .find()
+        if(btn.textContent === e.key || btn.dataset.key === e.key){
+          e.preventDefault();
+          btn.click();
+          console.log(btn);
+          break;
         }
       }
     };
